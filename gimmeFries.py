@@ -106,6 +106,15 @@ def favorite(driver):
     submit.click()
 
 
+
+def optional_page(driver):
+    check = "The following information is optional and for demographic purposes only."
+    if (driver.page_source.__contains__(check)):
+        submit = driver.find_element_by_css_selector("input[type='submit']")
+        submit.click()
+    else:
+        return
+
 def final(driver):
     code = str(driver.find_element_by_class_name("ValCode").text)
     print(code)
@@ -127,6 +136,7 @@ def get_fries(driver):
     eleventh_page(driver)
     decline_option(driver)
     favorite(driver)
+    optional_page(driver)
     final(driver)
 
 
