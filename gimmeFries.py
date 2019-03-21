@@ -119,7 +119,7 @@ def final(driver):
     code = str(driver.find_element_by_class_name("ValCode").text)
     print(code)
     with open("codes.txt", 'a') as f:
-        f.write(code+"\n")
+        f.write(code[17:]+"\n")
 
 
 def get_fries(driver):
@@ -143,7 +143,7 @@ def get_fries(driver):
 def main():
     code = "02290-06660-31819-14299-00066-6"
     driver = open_page('https://www.mcdvoice.com/')
-    for x in range(0,100):
+    for x in range(0,200):
         input_code(driver, code)
         time.sleep(0.5)
         get_fries(driver)
