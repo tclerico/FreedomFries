@@ -2,7 +2,8 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 codes.txt
-
+secrets.py
+TwitterBot/secrets.py
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml

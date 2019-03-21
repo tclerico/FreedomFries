@@ -143,11 +143,11 @@ def get_fries(driver):
 def main():
     code = "02290-06660-31819-14299-00066-6"
     driver = open_page('https://www.mcdvoice.com/')
-    for x in range(0,10):
+    for x in range(0,100):
         input_code(driver, code)
-        time.sleep(2)
+        time.sleep(0.5)
         get_fries(driver)
         driver.get('https://www.mcdvoice.com/')
-        time.sleep(1)
+        time.sleep(0.5)
 
 main()
