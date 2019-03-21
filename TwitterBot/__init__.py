@@ -14,7 +14,7 @@ def rem_from_file(code):
     file = open('testfile.txt', 'w')
     for i in range(len(codes)):
         if(i==code):
-            file.write("")
+            temp = "do nothing"
         else:
             file.write(codes[i] + "\n")
     file.close()
