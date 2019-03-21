@@ -118,7 +118,7 @@ def optional_page(driver):
 def final(driver):
     code = str(driver.find_element_by_class_name("ValCode").text)
     print(code)
-    with open("codes.txt", 'a') as f:
+    with open("TwitterBot/testfile.txt", 'a') as f:
         f.write(code[17:]+"\n")
 
 
