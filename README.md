@@ -8,3 +8,6 @@ For this to work create a text file called "codes.txt" at same level as script
 the webdriver can be downloaded at: https://chromedriver.storage.googleapis.com/index.html?path=2.45/
 
 then move it to /usr/local/bin
+
+# TwitterBot
+twitter bot @FreedomFries16 will reply with codes when tweeted at.
