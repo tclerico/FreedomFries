@@ -37,7 +37,7 @@ def tweet(api, text):
         'freedomfries16',
         'Freedomfries16',
         '@freedomFires16',
-        'free fries',
+        'fry',
         'Free fries']
     for s in twts:
 	user = s.user
