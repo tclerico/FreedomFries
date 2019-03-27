@@ -18,7 +18,7 @@ def fillReplied():
 
 
 def blacklist(tweet):
-    file = open('replied.txt', 'a')
+    file = open('/home/pi/Desktop/twitterBot/FreedomFries/TwitterBot/replied.txt', 'a')
     file.write(tweet + "\n")
     file.close()
 
@@ -47,7 +47,7 @@ def tweet(api, text):
         for i in t:
             if i in s.text:
                 for reply in replied:
-                    if tid != reply:
+                    if tid not in replied:
                         blacklist(tid)
                         if uid != "1108539513834536961": #our own id
                             # print(s.text)
@@ -58,7 +58,7 @@ def tweet(api, text):
                             print(m)
 
 def rem_from_file(code):
-    file = open('testfile.txt', 'w')
+    file = open('/home/pi/Desktop/twitterBot/FreedomFries/TwitterBot/testfile.txt', 'w')
     for i in range(len(codes)):
         if (i == code):
             temp = "do nothing"
@@ -68,7 +68,7 @@ def rem_from_file(code):
 
 
 def readCodes():
-    with open('testfile.txt') as f:
+    with open('/home/pi/Desktop/twitterBot/FreedomFries/TwitterBot/testfile.txt') as f:
         for line in f:
             temp = line
             temp = temp.strip()
