@@ -24,8 +24,7 @@ def blacklist(tweet):
 
 
 def searchTweet(api, searchTerm):
-    searchResults = [status for status in tweepy.
-        Cursor(api.search, q=searchTerm).items(100)]
+    searchResults = [status for status in tweepy.Cursor(api.search, q=searchTerm).items(100)]
     return searchResults
 
 
@@ -77,15 +76,42 @@ def readCodes():
                 break
 
 
+def find_mentions(api):
+    mentions = [status for status in tweepy.Cursor(api.search, q="@FreedomFries16", include_entities=True).items(10)]
+    print(len(mentions))
+
+    print(mentions[0].user.screen_name)
+
+
+def reply_to_mentions(api):
+    #TODO READ IN A LIST OF USERS THAT HAVE BEEN REPLIED TO ALREADY
+    mentions = [status for status in tweepy.Cursor(api.search, q="@FreedomFries16", include_entities=True).items(10)]
+    for m in mentions:
+        user = m.user
+        uid = user.id
+        uname = user.screen_name
+
+        #Check that user hasn't already been tweeted at today here
+        #
+        #
+
+        if (m.entities.get('media') is not None):
+            # Reply to user with code
+            continue
+
+
+
+
 def main():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
     api = tweepy.API(auth)  # create an API object
-    readCodes()
-    fillReplied()
-    code = random.randint(0, len(codes))
-    tweet_code = codes[code]
-    tweet(api, tweet_code)
-    rem_from_file(code)
-    print("finished")
+    find_mentions(api)
+    # readCodes()
+    # fillReplied()
+    # code = random.randint(0, len(codes))
+    # tweet_code = codes[code]
+    # tweet(api, tweet_code)
+    # rem_from_file(code)
+    # print("finished")
 main()
