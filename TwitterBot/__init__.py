@@ -51,14 +51,18 @@ def size(file):
     return os.stat(file).st_size
 
 
-def reply_to_mentions(api, blacklist_path, code_path):
-    # Read in list of users that have already been tweeted at  form: [[user_id, screen_name],[....]]
+def read_in_blacklist(blacklist_path):
     blacklist = []
     if (size(blacklist_path) > 0):
         with open(blacklist_path) as f:
-            str = f.readline().strip()
-            print(str)
-            blacklist.append([int(str.split(",")[0]),str.split(",")[1]])
+            str = f.readlines()
+            for s in str:
+                blacklist.append([int(s.strip().split(",")[0]), s.strip().split(",")[1]])
+    return blacklist
+
+def reply_to_mentions(api, blacklist_path, code_path):
+    # Read in list of users that have already been tweeted at  form: [[user_id, screen_name],[....]]
+    blacklist = read_in_blacklist(blacklist_path)
 
     # loop through all mentions
     codes = read_codes(code_path)
