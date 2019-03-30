@@ -94,8 +94,8 @@ def main():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
     api = tweepy.API(auth)  # create an API object
-    blacklist_path = "/Users/timc/PycharmProjects/FreedomFries/blacklist.txt"
-    code_path = "/Users/timc/PycharmProjects/FreedomFries/TwitterBot/testfile.txt"
+    blacklist_path = "/home/pi/Desktop/twitterBot/FreedomFries/TwitterBot/blacklist.txt"
+    code_path = "/home/pi/Desktop/twitterBot/FreedomFries/TwitterBot/testfile.txt"
     reply_to_mentions(api, blacklist_path, code_path)
 
 main()
